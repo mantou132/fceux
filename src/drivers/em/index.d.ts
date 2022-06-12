@@ -57,7 +57,7 @@ export class FceuxModule {
   downloadGame: (url: RequestInfo, init?: RequestInit, filename?: string) => void;
   /*
   Get MD5 of the loaded game.
-  Returns '' if no game is loaded.
+  Returns `''` if no game is loaded.
   */
   gameMd5: () => string;
 

@@ -31,7 +31,7 @@ Pass optional `filename` for FCEUX NTSC/PAL region autodetection, otherwise
 
 Get MD5 of the loaded game.
 
-Returns '' if no game is loaded.
+Returns `''` if no game is loaded.
 
 ## reset: () => void
 
