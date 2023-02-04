@@ -48,8 +48,6 @@ node_modules
 src/drivers/em/build
 src/drivers/em/dist
 src/drivers/em/opsfuncs.inc
-src/drivers/em/API.md
-src/drivers/em/COPYING
 
 # typical CMake build directory
 /build
