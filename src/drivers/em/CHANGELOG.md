@@ -1,5 +1,13 @@
 # Changelog for em-fceux
 
+## [2.2.0] - 2023-02-06
+
+### Changed
+
+- `setConfig()` in `index.d.ts` to exact typing.
+- `index.d.ts` and `API.md` are now generated from `post.js` inline
+  documentation.
+
 ## [2.1.0] - 2022-06-01
 
 ### Changed

@@ -1,6 +1,6 @@
 {
   "name": "em-fceux",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Emscripten port of FCEUX emulator.",
   "homepage": "https://tsone.kapsi.fi/em-fceux/",
   "author": "Valtteri Heikkilä",
@@ -40,7 +40,7 @@
   "scripts": {
     "build": "./scripts/build-emscripten.sh && npm run build:docs",
     "build:debug": "./scripts/build-emscripten.sh --debug && npm run build:docs",
-    "build:docs": "./scripts/gen-api-doc.py > API.md && cp ../../../COPYING . && npm run prettier",
+    "build:docs": "./scripts/gen-api-doc.py && cp ../../../COPYING . && npm run prettier",
     "build:shaders": "./scripts/build-shaders.sh",
     "clean": "./scripts/build-emscripten.sh --clean ; rm -rf dist ; find . -name '*.o' -delete",
     "prepack": "npm test",
