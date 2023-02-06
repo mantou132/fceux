@@ -1,6 +1,6 @@
 # em-fceux
 
-https://github.com/tsone/fceux/tree/master/src/drivers/em
+https://github.com/tsone/fceux/tree/emscripten/src/drivers/em
 
 Web fork of the [FCEUX](https://github.com/TASVideos/fceux/) Nintendo
 Entertainment System/Famicom (NES/FC) emulator. Powered by
@@ -52,7 +52,7 @@ For advanced usage (a full web emulator), see
 [em-fceux-site](https://bitbucket.org/tsone/em-fceux-site/).
 
 API documentation can be found in
-[API.md](https://github.com/tsone/fceux/tree/master/src/drivers/em/API.md).
+[API.md](https://github.com/tsone/fceux/tree/emscripten/src/drivers/em/API.md).
 
 ## Build
 
