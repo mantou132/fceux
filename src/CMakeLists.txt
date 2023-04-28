@@ -95,13 +95,13 @@ elseif(EMSCRIPTEN)
 		--no-entry --embed-file ${CMAKE_SOURCE_DIR}/src/drivers/em/assets/data/@/data/
 		--bind --post-js ${CMAKE_SOURCE_DIR}/src/drivers/em/post.js
 		-sEXPORT_NAME=FCEUX
-		-sEXPORTED_FUNCTIONS=['_audioBufferCallback']
+		-sEXPORTED_FUNCTIONS=['_audioBufferCallback','_getMemory','_readMemory','_writeMemory']
 		-sGL_EMULATE_GLES_VERSION_STRING_FORMAT=0
 		-sGL_EXTENSIONS_IN_PREFIXED_FORMAT=0
 		-sGL_SUPPORT_AUTOMATIC_ENABLE_EXTENSIONS=0
 		-sGL_SUPPORT_SIMPLE_ENABLE_EXTENSIONS=0
 		-sINVOKE_RUN=0
-		-sLLD_REPORT_UNDEFINED
+		-sEXPORT_ES6=1
 		-sMODULARIZE=1
 		${COMMON_FLAGS})
 	link_libraries(GL)

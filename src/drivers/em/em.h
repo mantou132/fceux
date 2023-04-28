@@ -30,7 +30,7 @@ namespace emscripten
 // Audio options.
 // NOTE: Both AUDIO_BUF_MAX and AUDIO_HW_BUF_MAX must be power of two!
 #define AUDIO_BUF_MAX		8192
-#define AUDIO_HW_BUF_MAX	2048
+#define AUDIO_HW_BUF_MAX	735
 #define AUDIO_BUF_MASK		(AUDIO_BUF_MAX - 1)
 
 #define INPUT_W     256 // Width of input generated PPU image (in px).
@@ -47,7 +47,6 @@ extern int em_scanlines;
 extern std::string em_region;
 
 bool Audio_Init();
-bool Audio_TryInitWebAudioContext();
 void Audio_Write(int32 *buffer, int count);
 void Audio_SetMuted(bool muted);
 bool Audio_Muted();

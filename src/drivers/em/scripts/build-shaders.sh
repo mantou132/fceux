@@ -4,8 +4,8 @@ cd `dirname "$0"` && SCRIPT_DIR=`pwd -P`
 
 GLSLOPT_DIR=tmp/glsl-optimizer
 GLSLOPT=$GLSLOPT_DIR/glslopt
-SRCDIR=src/drivers/em/assets/shaders
-DSTDIR=src/drivers/em/assets/data
+SRCDIR=../assets/shaders
+DSTDIR=../assets/data
 COMMONF=$SRCDIR/common
 TEMPF=$SRCDIR/$RANDOM.tmp
 

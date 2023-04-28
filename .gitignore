@@ -51,3 +51,4 @@ src/drivers/em/opsfuncs.inc
 
 # typical CMake build directory
 /build
+tmp

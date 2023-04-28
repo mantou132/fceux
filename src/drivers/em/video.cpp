@@ -61,41 +61,10 @@ static double GetAspect()
 
 static void Resize(int width, int height)
 {
-    int new_width, new_height;
+    s_canvas_width = width;
+    s_canvas_height = height;
 
-    const double targetAspect = GetAspect();
-    // Aspect for window resize.
-    const double aspect = width / (double) height;
-
-    if (aspect >= targetAspect) {
-        new_width = height * targetAspect;
-        new_height = height;
-    } else {
-        new_width = width;
-        new_height = width / targetAspect;
-    }
-
-    if ((new_width == s_canvas_width) && (new_height == s_canvas_height)) {
-        return;
-    }
-    s_canvas_width = new_width;
-    s_canvas_height = new_height;
-
-    const double pixelRatio = EM_ASM_DOUBLE({ return window.devicePixelRatio; });
-
-    // HACK: emscripten_set_canvas_size() forces canvas size by setting css style
-    // width and height with "!important" flag. Workaround is to set size manually
-    // and remove the style attribute. See Emscripten's updateCanvasDimensions()
-    // in library_browser.js for the faulty code.
-    EM_ASM_INT({
-        const canvas = Module.ctx.canvas;
-        canvas.width = canvas.widthNative = ($0 * $2);
-        canvas.height = canvas.heightNative = ($1 * $2);
-        canvas.style.setProperty( "width", $0 + "px", "important");
-        canvas.style.setProperty("height", $1 + "px", "important");
-    }, s_canvas_width, s_canvas_height, pixelRatio);
-
-    ES2_SetViewport(pixelRatio * s_canvas_width, pixelRatio * s_canvas_height);
+    ES2_SetViewport(s_canvas_width, s_canvas_height);
 }
 
 void FCEUD_VideoChanged()
@@ -113,8 +82,8 @@ void RefreshThrottleFPS()
 
 void Video_ResizeCanvas()
 {
-    int width = EM_ASM_INT({ return Module.ctx.canvas.parentElement.clientWidth; });
-    int height = EM_ASM_INT({ return Module.ctx.canvas.parentElement.clientHeight; });
+    int width = EM_ASM_INT({ return Module.ctx.canvas.width; });
+    int height = EM_ASM_INT({ return Module.ctx.canvas.height; });
     Resize(width, height);
 }
 

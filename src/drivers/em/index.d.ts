@@ -1,5 +1,5 @@
 interface SettingsMap {
-  'video-system': 'auto' | 'dendy' | 'ntsc' | 'pal';
+  'video-system': 'auto'|'dendy'|'ntsc'|'pal';
   'video-ntsc': boolean;
   'video-tv': boolean;
   'video-brightness': number;
@@ -11,10 +11,10 @@ interface SettingsMap {
   'video-convergence': number;
   'video-scanlines': number;
   'video-glow': number;
-  'system-port-2': 'controller' | 'zapper';
+  'system-port-2': 'controller'|'zapper';
 }
 
-interface EventMap {
+  interface EventMap {
   'game-loaded': (filename: string) => any;
 }
 

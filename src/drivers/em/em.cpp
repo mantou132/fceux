@@ -157,11 +157,6 @@ static bool DoFrame()
     static double frame_time; // Tracked frame time (ms).
     static double frame_duration; // Duration of last frame (ms).
 
-    if (!Audio_TryInitWebAudioContext()) {
-        // Web audio context either missing or initialization failed.
-        return false;
-    }
-
     bool rendered_video = false;
     int frameskipmode = 0;
 

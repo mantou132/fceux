@@ -1,6 +1,6 @@
 {
-  "name": "em-fceux",
-  "version": "2.2.0",
+  "name": "@mantou/fceux",
+  "version": "0.0.5",
   "description": "Emscripten port of FCEUX emulator.",
   "homepage": "https://tsone.kapsi.fi/em-fceux/",
   "author": "Valtteri Heikkilä",
@@ -13,42 +13,20 @@
   "bugs": {
     "url": "https://bitbucket.org/tsone/em-fceux/issues?status=new&status=open"
   },
-  "keywords": [
-    "emscripten",
-    "emulator",
-    "famicom",
-    "fceux",
-    "nes",
-    "nintendo",
-    "wasm",
-    "webassembly",
-    "webaudio",
-    "web audio",
-    "webgl"
-  ],
+  "exports": {
+    ".": "./dist/fceux.js",
+    "./*": "./dist/*"
+  },
   "files": [
-    "API.md",
-    "CHANGELOG.md",
-    "COPYING",
-    "dist/fceux.js",
-    "dist/fceux.wasm",
-    "index.d.ts",
-    "package.json",
-    "README.md"
+    "/dist/",
+    "/index.d.ts"
   ],
-  "main": "./dist/fceux.js",
+  "types": "./index.d.ts",
   "scripts": {
     "build": "./scripts/build-emscripten.sh && npm run build:docs",
     "build:debug": "./scripts/build-emscripten.sh --debug && npm run build:docs",
-    "build:docs": "./scripts/gen-api-doc.py && cp ../../../COPYING . && npm run prettier",
+    "build:docs": "./scripts/gen-api-doc.py && cp ../../../COPYING . ",
     "build:shaders": "./scripts/build-shaders.sh",
-    "clean": "./scripts/build-emscripten.sh --clean ; rm -rf dist ; find . -name '*.o' -delete",
-    "prepack": "npm test",
-    "prettier": "prettier --prose-wrap always --write *.md && prettier --single-quote --print-width 999 --trailing-comma es5 --write *.d.ts *.{js,ts}",
-    "test": "[ -f API.md -a -f CHANGELOG.md -a -f COPYING -a -f README.md -a -f dist/fceux.js -a -f dist/fceux.wasm ]"
-  },
-  "devDependencies": {
-    "prettier": "^2.6.2"
-  },
-  "dependencies": {}
+    "clean": "./scripts/build-emscripten.sh --clean ; rm -rf dist ; find . -name '*.o' -delete"
+  }
 }

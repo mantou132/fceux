@@ -455,38 +455,7 @@ void FCEU_DispMessageOnMovie(const char *format, ...)
 
 void FCEU_DispMessage(const char *format, int disppos=0, ...)
 {
-	va_list ap;
-
-	va_start(ap,disppos);
-	vsnprintf(guiMessage.errmsg,sizeof(guiMessage.errmsg),format,ap);
-	va_end(ap);
-	// also log messages
-	char temp[2048];
-	va_start(ap,disppos);
-	vsnprintf(temp,sizeof(temp),format,ap);
-	va_end(ap);
-	strcat(temp, "\n");
-	FCEU_printf(temp);
-
-	if ( vidGuiMsgEna )
-	{
-		guiMessage.howlong = 180;
-	}
-	guiMessage.isMovieMessage = false;
-
-	guiMessage.linesFromBottom = disppos;
-
-	//adelikat: Pretty sure this code fails, Movie playback stopped is done with FCEU_DispMessageOnMovie()
-	#ifdef CREATE_AVI
-	if(LoggingEnabled == 2)
-	{
-		/* While in AVI recording mode, only display bare minimum
-		 * of messages
-		 */
-		if(strcmp(guiMessage.errmsg, "Movie playback stopped.") != 0)
-			guiMessage.howlong = 0;
-	}
-	#endif
+	
 }
 
 void FCEU_ResetMessages()

@@ -386,6 +386,21 @@ void SetWriteHandler(int32 start, int32 end, writefunc func) {
 
 uint8 *RAM;
 
+extern "C" uint8* getMemory()
+{
+	return RAM;
+}
+
+extern "C" uint8 readMemory(int32 A)
+{
+	return RAM[A];
+}
+
+extern "C" void writeMemory(int32 A, uint8 V)
+{
+	RAM[A] = V;
+}
+
 //---------
 //windows might need to allocate these differently, so we have some special code
 

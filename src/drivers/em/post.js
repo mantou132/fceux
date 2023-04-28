@@ -72,7 +72,7 @@
     @setting system-port-2 'zapper' 'controller'|'zapper'
     Set the peripheral of the 2nd controller port.
     */
-    'system-port-2': 'zapper',
+    'system-port-2': 'controller',
   };
 
   /*
